@@ -46,3 +46,22 @@ Go to the web page and paste the generated password
 
 http://your_server_ip:8080
 
+4. Setting up out sample Project
+
+    # create a virtual environment 
+    ```bash
+    cd Flask-Docker-App
+    python3 -m venv venv
+    ```
+
+    # activate the environment
+    ```source venv/bin/activate```
+
+    # install the requirements
+    ```
+    pip install -r requirements.txt
+    ```
+    # run the application
+    ```
+    python app.py
+    ```
