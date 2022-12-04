@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        BRANCH_NAME = "master"
+        BRANCH_NAME = "staging"
         DOCKER_IMAGE = "ivanovyuriy/flask-hello"
     }
     
