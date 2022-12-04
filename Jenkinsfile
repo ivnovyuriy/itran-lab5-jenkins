@@ -18,7 +18,7 @@ pipeline {
         stage("Cloning Git") {
             steps {
                 echo "Checkout to ${BRANCH_NAME}"
-                git([url: "https://github.com/ivnovyuriy/itran-lab5-jenkins.git", branch: env.BRANCH_NAME, credentialsId: "ivnovyuriy"])
+                git([url: "https://github.com/ivnovyuriy/itran-lab5-jenkins.git", branch: env.BRANCH_NAME, credentialsId: "ivnovyuriy-github"])
  
             }
         }
@@ -47,7 +47,7 @@ pipeline {
         stage ("Deploy") {
             steps {
                 echo "Deploy stage"
-                sshagent(credentials : ["keypair-ec2"]) {
+                sshagent(credentials : ["mykey"]) {
                     sh '''
                         [ -d ~/.ssh ] || mkdir ~/.ssh && chmod 0700 ~/.ssh
                         ssh-keyscan -t rsa,dsa ${DEPLOY_HOST} >> ~/.ssh/known_hosts
