@@ -18,7 +18,7 @@ pipeline {
         stage("Cloning Git") {
             steps {
                 echo "Checkout to ${BRANCH_NAME}"
-                git([url: "https://github.com/ivnovyuriy/itran-lab5-jenkins.git", branch: env.BRANCH_NAME, credentialsId: "ivnovyuriy-github"])
+                git([url: "https://github.com/ivnovyuriy/itran-lab5-jenkins.git", branch: env.BRANCH_NAME])
  
             }
         }
