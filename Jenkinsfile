@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    // Set up environment details
     environment {
         BRANCH_NAME = "staging"
         DOCKER_IMAGE = "ivanovyuriy/flask-hello"
@@ -8,13 +9,14 @@ pipeline {
     options { 
         buildDiscarder(logRotator(numToKeepStr: '5')) 
     }
-
+    // Parameters of the external machine, where we'll deploy out artifact
     parameters {
         string(name: "DEPLOY_USER", defaultValue: "ubuntu", trim: true, description: "Username on the deployment server")
         string(name: "DEPLOY_HOST", defaultValue: "ec2-54-224-252-204.compute-1.amazonaws.com", trim: true, description: "Address of the deployment server")
     }
     
     stages {
+        // Stage 1 - Cloning Git
         stage("Cloning Git") {
             steps {
                 echo "Checkout to ${BRANCH_NAME}"
@@ -22,7 +24,7 @@ pipeline {
  
             }
         }
-        
+        // Stage 2 - Build our app via Docker
         stage("Build") {
             steps {
                 script {
@@ -31,7 +33,7 @@ pipeline {
                 }
             }
         }
-        
+        // Stage 3 - Push out Docker image to Docker hub
         stage("Backup") {
             steps {
                 script {
@@ -43,7 +45,7 @@ pipeline {
         }
       }
     }
-    
+        // Stage 4 - Deploy our app to external machine
         stage ("Deploy") {
             steps {
                 echo "Deploy stage"
