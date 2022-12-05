@@ -15,6 +15,9 @@ sudo ufw allow 8080/tcp
 sudo ufw --force enable
 sudo ufw status
 
+# Installing Git
+sudo apt-get install -y git
+
 # Installing Docker
 sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
