@@ -55,8 +55,7 @@ pipeline {
                         ssh-keyscan -t rsa,dsa ${DEPLOY_HOST} >> ~/.ssh/known_hosts
                         chmod +x deploy.sh
                         scp deploy.sh ${DEPLOY_USER}@${DEPLOY_HOST}:~/
-                        ssh ${DEPLOY_USER}@${DEPLOY_HOST} 
-                        bash deploy.sh
+                        ssh ${DEPLOY_USER}@${DEPLOY_HOST} ./deploy.sh
                         '''
                 }
         }
