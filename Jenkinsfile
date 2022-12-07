@@ -12,7 +12,7 @@ pipeline {
     // Parameters of the external machine, where we'll deploy out artifact
     parameters {
         string(name: "DEPLOY_USER", defaultValue: "ubuntu", trim: true, description: "Username on the deployment server")
-        string(name: "DEPLOY_HOST", defaultValue: "ec2-54-208-111-187.compute-1.amazonaws.com", trim: true, description: "Address of the deployment server")
+        string(name: "DEPLOY_HOST", defaultValue: "ec2-174-129-162-119.compute-1.amazonaws.com", trim: true, description: "Address of the deployment server")
     }
     
     stages {
