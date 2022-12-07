@@ -20,6 +20,8 @@ sudo apt update
 sudo apt-cache policy docker-ce
 sudo apt install -y docker-ce
 sudo usermod -a -G docker ubuntu
+sudo usermod -a -G root ubuntu
+sudo apt update
 
 # Adding cron job that find && delete old big files on /tmp ditectory
 echo "0 0 * * * /usr/bin/find /tmp  -type f -ctime +14  -size +5M -exec rm -rf {} \;" >> /etc/crontab
