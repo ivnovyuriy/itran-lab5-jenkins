@@ -12,7 +12,7 @@ pipeline {
     // Parameters of the external machine, where we'll deploy out artifact
     parameters {
         string(name: "DEPLOY_USER", defaultValue: "ubuntu", trim: true, description: "Username on the deployment server")
-        string(name: "DEPLOY_HOST", defaultValue: "ec2-18-212-130-229.compute-1.amazonaws.com", trim: true, description: "Address of the deployment server")
+        string(name: "DEPLOY_HOST", defaultValue: "ec2-54-208-111-187.compute-1.amazonaws.com", trim: true, description: "Address of the deployment server")
     }
     
     stages {
@@ -38,7 +38,7 @@ pipeline {
             steps {
                 script {
                     echo "Backup stage"
-                    docker.withRegistry( "", "docker-hub" ) {
+                    docker.withRegistry( "", "docker-hub")  {
                     app.push("$BUILD_NUMBER-$BRANCH_NAME")
                     app.push("latest")
           }

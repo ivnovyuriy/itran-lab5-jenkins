@@ -23,6 +23,3 @@ sudo usermod -a -G docker ubuntu
 
 # Adding cron job that find && delete old big files on /tmp ditectory
 echo "0 0 * * * /usr/bin/find /tmp  -type f -ctime +14  -size +5M -exec rm -rf {} \;" >> /etc/crontab
-
-# run another bash script to configure WP && Nginx && MySQL
-# sudo bash /tmp/wpconfig.sh
