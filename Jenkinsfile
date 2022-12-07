@@ -52,16 +52,11 @@ pipeline {
                 sshagent(credentials : ["AWS_Creds"]) {
                     sh '''
                         [ -d ~/.ssh ] || mkdir ~/.ssh && chmod 0700 ~/.ssh
-                        echo 1
                         ssh-keyscan -t rsa,dsa ${DEPLOY_HOST} >> ~/.ssh/known_hosts
-                        echo 2
                         scp deploy.sh ${DEPLOY_USER}@${DEPLOY_HOST}:~/
-                        echo 3
                         ssh ${DEPLOY_USER}@${DEPLOY_HOST} 
-                        echo 4
-                        chmod +x ./deploy.sh
-                        echo 5
-                        bash ./deploy.sh
+                        chmod +x deploy.sh
+                        ./deploy.sh
                         '''
                 }
         }
