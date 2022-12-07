@@ -12,7 +12,7 @@ pipeline {
     // Parameters of the external machine, where we'll deploy out artifact
     parameters {
         string(name: "DEPLOY_USER", defaultValue: "ubuntu", trim: true, description: "Username on the deployment server")
-        string(name: "DEPLOY_HOST", defaultValue: "ec2-54-224-252-204.compute-1.amazonaws.com", trim: true, description: "Address of the deployment server")
+        string(name: "DEPLOY_HOST", defaultValue: "ec2-18-212-130-229.compute-1.amazonaws.com", trim: true, description: "Address of the deployment server")
     }
     
     stages {
@@ -49,7 +49,7 @@ pipeline {
         stage ("Deploy") {
             steps {
                 echo "Deploy stage"
-                sshagent(credentials : ["mykey"]) {
+                sshagent(credentials : ["AWS_Creds"]) {
                     sh '''
                         [ -d ~/.ssh ] || mkdir ~/.ssh && chmod 0700 ~/.ssh
                         ssh-keyscan -t rsa,dsa ${DEPLOY_HOST} >> ~/.ssh/known_hosts
