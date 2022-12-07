@@ -57,9 +57,11 @@ pipeline {
                         echo 2
                         scp deploy.sh ${DEPLOY_USER}@${DEPLOY_HOST}:~/
                         echo 3
-                        chmod +x ./deploy.sh
+                        ssh ${DEPLOY_USER}@${DEPLOY_HOST} 
                         echo 4
-                        ssh ${DEPLOY_USER}@${DEPLOY_HOST} ./deploy.sh
+                        chmod +x ./deploy.sh
+                        echo 5
+                        bash ./deploy.sh
                         '''
                 }
         }
