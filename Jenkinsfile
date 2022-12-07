@@ -56,7 +56,7 @@ pipeline {
                         chmod +x deploy.sh
                         scp deploy.sh ${DEPLOY_USER}@${DEPLOY_HOST}:~/
                         ssh ${DEPLOY_USER}@${DEPLOY_HOST} 
-                        bash ./deploy.sh
+                        bash deploy.sh
                         '''
                 }
         }

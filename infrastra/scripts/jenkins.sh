@@ -37,12 +37,13 @@ sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sour
 sudo apt update
 sudo apt install -y jenkins
 
-# Add jenkins user to docker group
+# Add jenkins & ubuntu user to docker group
 sudo usermod -a -G docker jenkins
+sudo usermod -a -G docker ubuntu
+sudo apt update
 
 # Starting Jenkins
 sudo systemctl start jenkins
-# sudo systemctl status jenkins
 
 echo " 
 ################################################
@@ -50,6 +51,7 @@ echo "
 ################################################
 
 Your Jenkins server is running.
-   1. API: http://$public_ip:8080
+
+Jenkins: http://$public_ip:8080
 
 echo "
