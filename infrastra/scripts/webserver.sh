@@ -7,7 +7,8 @@ sudo apt install net-tools
 
 # Setting Up a Basic Firewall
 sudo ufw allow OpenSSH
-sudo ufw allow 8000/tcp
+sudo ufw allow 8000/tcp # Port for App in Staging
+sudo ufw allow 8080/tcp # Port for App in Production
 
 sudo ufw --force enable
 sudo ufw status

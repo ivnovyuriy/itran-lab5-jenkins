@@ -10,7 +10,7 @@ sudo apt install -y net-tools
 
 # Setting Up a Basic Firewall
 sudo ufw allow OpenSSH
-sudo ufw allow 8080/tcp
+sudo ufw allow 8080/tcp # Port for Jenkins
 
 sudo ufw --force enable
 sudo ufw status
