@@ -16,7 +16,6 @@ sudo ufw --force enable
 sudo ufw status
 
 # Installing Git
-# sudo apt-get install -y git
 sudo apt-get install -y libz-dev libssl-dev libcurl4-gnutls-dev libexpat1-dev gettext cmake gcc
 
 # Installing Docker
@@ -26,7 +25,6 @@ sudo echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/
 sudo apt update
 sudo apt-cache policy docker-ce
 sudo apt install -y docker-ce
-# sudo systemctl status docker
 
 # Installing Java 11 JDK
 sudo apt install -y openjdk-11-jdk

@@ -11,6 +11,7 @@ resource "aws_instance" "jenkins" {
   subnet_id = aws_subnet.main-public.id
   # the security group
   vpc_security_group_ids = [aws_security_group.sg.id]
+  
   # the public SSH key
   key_name = aws_key_pair.mykey.key_name
   # user data
