@@ -11,7 +11,7 @@ Prerequisites:
 git clone https://github.com/ivnovyuriy/itran-lab5-jenkins.git
 ```
 
-2. Go to the /infra folder, and change environment details and variables on yours, then:
+2. Go to the /infrastra folder, and change environment details and variables on yours, then:
 
 First, go to backend.tf file and change the name of your previously created bucket
 
