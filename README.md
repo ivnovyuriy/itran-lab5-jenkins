@@ -70,11 +70,11 @@ http://your_server_ip:8080
 
 5. Install additional plugins for Jenkins
 
-'''
+```
 Docker
 GitHub
 Ssh-agent
-'''
+```
 
 6. Create new pipeline "Staging" & run the Job
 
