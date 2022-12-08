@@ -26,7 +26,7 @@ And while webserver is provisioning let's configure Jenkins server
 
 3. Setting Up Jenkins
 
-IMAGE
+![Jenkins](https://github.com/ivnovyuriy/itran-lab5-jenkins/blob/bca906fb397429d2fcc7ed654f8aa344d0871942/img/1.png)
 
 SSH to you Jenkins server by the following command:
 
@@ -38,7 +38,7 @@ Go to you console and print following command:
 ```
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
-IMAGE
+![JenkinsFirstPass](https://github.com/ivnovyuriy/itran-lab5-jenkins/blob/bca906fb397429d2fcc7ed654f8aa344d0871942/img/2.png)
 
 Copy the output password
 
@@ -65,3 +65,29 @@ http://your_server_ip:8080
     ```
     python app.py
     ```
+# Test it on localhost
+![Localhost test](https://github.com/ivnovyuriy/itran-lab5-jenkins/blob/bca906fb397429d2fcc7ed654f8aa344d0871942/img/3.png)
+
+5. Install additional plugins for Jenkins
+
+'''
+Docker
+GitHub
+Ssh-agent
+'''
+
+6. Create new pipeline "Staging" & run the Job
+
+![Localhost test](https://github.com/ivnovyuriy/itran-lab5-jenkins/blob/bca906fb397429d2fcc7ed654f8aa344d0871942/img/4.png)
+
+It deploys on separate EC2 instance via ssh key
+
+![Staging EC2 8000 port](https://github.com/ivnovyuriy/itran-lab5-jenkins/blob/bca906fb397429d2fcc7ed654f8aa344d0871942/img/5.png)
+
+7. Create new pipeline "Production" & run the Job
+
+![Localhost test](https://github.com/ivnovyuriy/itran-lab5-jenkins/blob/bca906fb397429d2fcc7ed654f8aa344d0871942/img/6.png)
+
+It deploys on separate EC2 instance via ssh key
+
+![Staging EC2 8080 port](https://github.com/ivnovyuriy/itran-lab5-jenkins/blob/bca906fb397429d2fcc7ed654f8aa344d0871942/img/7.png)
