@@ -32,19 +32,6 @@ resource "aws_instance" "jenkins" {
     }
   }
 
-  # Provision config files to /tmp directory
-  provisioner "file" {
-    source      = "configs/jenkins/"
-    destination = "/tmp"
-
-    connection {
-      type        = "ssh"
-      user        = "ubuntu"
-      private_key = file("yuriy_ec2.pem")
-      host        = aws_instance.jenkins.public_ip
-    }
-  }
-
   # Remote exec install.sh
   provisioner "remote-exec" {
     inline = [
@@ -60,8 +47,3 @@ resource "aws_instance" "jenkins" {
   }
 
 }
-
-/* output "instances" {
-  value       = aws_instance.jenkins.public_ip
-  description = "PublicIP address details"
-} */
